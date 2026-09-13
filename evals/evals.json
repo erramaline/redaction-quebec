@@ -3,38 +3,93 @@
   "evals": [
     {
       "id": 1,
+      "category": "oqlf-ponctuation",
       "prompt": "Corrige ce texte selon les normes de rédaction québécoises : « Es-tu certain de vouloir continuer ? »",
       "expected_output": "« Es-tu certain de vouloir continuer? » — aucune espace avant le point d'interrogation.",
       "files": []
     },
     {
       "id": 2,
+      "category": "oqlf-nombres",
       "prompt": "Corrige ce texte selon les normes de rédaction québécoises : « Le montant total est de 1250.50$, ce qui représente une hausse de 5%. »",
       "expected_output": "« Le montant total est de 1 250,50 $, ce qui représente une hausse de 5 %. » — virgule décimale, espace insécable pour les milliers, symbole $ à droite avec espace, espace avant %.",
       "files": []
     },
     {
       "id": 3,
+      "category": "oqlf-epicene",
       "prompt": "Corrige ce texte selon les normes de rédaction québécoises : « Les étudiant·e·s doivent remettre leur travail avant le 1ère novembre. »",
       "expected_output": "« Les étudiantes et étudiants doivent remettre leur travail avant le 1er novembre. » — doublet complet plutôt que point médian, ordinal masculin correct pour une date.",
       "files": []
     },
     {
       "id": 4,
+      "category": "oqlf-majuscules",
       "prompt": "Corrige ce texte selon les normes de rédaction québécoises : « Le Premier Ministre a rencontré la Directrice du Service de la Comptabilité. »",
       "expected_output": "« Le premier ministre a rencontré la directrice du Service de la comptabilité. » — minuscule aux titres de fonction, majuscule seulement au premier mot constitutif de l'unité administrative, majuscule de début de phrase conservée.",
       "files": []
     },
     {
       "id": 5,
+      "category": "oqlf-orthographe-1990",
       "prompt": "Corrige ce texte selon les normes de rédaction québécoises : « Le congrès aura lieu en août ; nous ferons le point sur l'évènement de l'an dernier, qui avait eu lieu en aout. »",
       "expected_output": "« Le congrès aura lieu en août; nous ferons le point sur l'évènement de l'an dernier, qui avait eu lieu en août. » — uniformisation de la graphie de « août » dans tout le texte, aucune espace avant le point-virgule.",
       "files": []
     },
     {
       "id": 6,
+      "category": "oqlf-ponctuation",
       "prompt": "Corrige ce texte selon les normes de rédaction québécoises : « Le rapport souligne que la mesure est « jugée urgente » par les experts. »",
       "expected_output": "« Le rapport souligne que la mesure est \"jugée urgente\" par les experts. » — guillemets anglais pour la citation enchâssée de second niveau, jamais deux paires de guillemets français emboîtées.",
+      "files": []
+    },
+    {
+      "id": 7,
+      "category": "humanisation-residu-robot",
+      "prompt": "Humanise ce texte selon les normes québécoises : « Excellente question ! Voici un aperçu de la Révolution tranquille. Elle a débuté dans les années 1960. J'espère que cela vous aide ! N'hésitez pas à me demander de développer. »",
+      "expected_output": "« La Révolution tranquille a débuté dans les années 1960. » — §20 résidus de robot supprimés (« Excellente question! », « J'espère que cela vous aide! », « N'hésitez pas… »), espaces retirées avant les points d'exclamation.",
+      "files": []
+    },
+    {
+      "id": 8,
+      "category": "humanisation-pas-x-mais-y",
+      "prompt": "Humanise ce texte selon les normes québécoises : « Ce n'est pas seulement une question de budget ; c'est un moment charnière pour l'avenir de l'éducation au Québec. »",
+      "expected_output": "« Le budget aura des conséquences directes sur l'avenir de l'éducation au Québec. » — §1 contraste pas-X-mais-Y supprimé (le négatif ne corrigeait aucune croyance du lecteur), §12 « moment charnière » remplacé par l'effet concret, espace retirée avant le point-virgule.",
+      "files": []
+    },
+    {
+      "id": 9,
+      "category": "humanisation-mise-en-scene",
+      "prompt": "Humanise ce texte selon les normes québécoises : « Plongeons dans le fonctionnement de la mise en cache. Voici ce qu'il faut savoir : la performance est cruciale. »",
+      "expected_output": "« La mise en cache améliore la performance. » — §4 mise en scène (« Plongeons dans… Voici ce qu'il faut savoir ») supprimée, §11 mot surutilisé (« cruciale ») remplacé.",
+      "files": []
+    },
+    {
+      "id": 10,
+      "category": "humanisation-triades",
+      "prompt": "Humanise ce texte selon les normes québécoises : « Le programme offre de l'innovation, de l'inspiration et des perspectives incontournables pour les participant·e·s. »",
+      "expected_output": "« Le programme propose des conférences et des ateliers aux participantes et participants. » — §6 triade forcée restructurée, §15 « incontournables » supprimé, OQLF épicène doublet complet au lieu du point médian.",
+      "files": []
+    },
+    {
+      "id": 11,
+      "category": "humanisation-gras-decoratif",
+      "prompt": "Humanise ce texte selon les normes québécoises : « - **Expérience utilisateur :** L'interface a été considérablement bonifiée.\n- **Performance :** Les algorithmes ont été optimisés.\n- **Sécurité :** Le chiffrement de bout en bout a été ajouté. »",
+      "expected_output": "« La mise à jour améliore l'interface, optimise les algorithmes et ajoute le chiffrement de bout en bout. » — §18 gras décoratif et liste étiquetée convertis en prose, §11 « bonifiée » remplacé.",
+      "files": []
+    },
+    {
+      "id": 12,
+      "category": "humanisation-importance-gonflee",
+      "prompt": "Humanise ce texte selon les normes québécoises : « L'Institut de la statistique du Québec a été officiellement créé en 1998, marquant un moment charnière dans l'évolution des statistiques régionales au Canada. Cette initiative s'inscrit dans un mouvement plus large de décentralisation visant à bonifier la gouvernance régionale. »",
+      "expected_output": "« L'Institut de la statistique du Québec a été créé en 1998, dans le cadre d'une décentralisation plus large des fonctions administratives au Canada. » — §12 « moment charnière » et « officiellement » supprimés, §14 cavalier en -ant (« marquant ») retiré, §11 « bonifier » remplacé.",
+      "files": []
+    },
+    {
+      "id": 13,
+      "category": "humanisation-combinee-oqlf",
+      "prompt": "Humanise et corrige ce texte selon les normes québécoises : « Excellente question ! Le Premier Ministre a affirmé : « La mesure est jugée « prioritaire » par le comité » ! Le budget est de 1250.50$, soit 5% de plus, pour les étudiant·e·s. Ce n'est pas seulement une question de chiffres — c'est un moment charnière. Voilà le véritable enjeu. »",
+      "expected_output": "« Le premier ministre a affirmé : « La mesure est jugée \"prioritaire\" par le comité »! Le budget est de 1 250,50 $, soit 5 % de plus, pour les étudiantes et étudiants. La hausse aura des conséquences directes sur le financement. » — Corrections combinées OQLF (ponctuation, nombres, épicène, majuscules) et humanisation (§20 résidu de robot, §1 pas-X-mais-Y, §8 tiret cadratin, §12 importance gonflée, §2 chute d'une ligne).",
       "files": []
     }
   ]
