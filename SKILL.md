@@ -1,16 +1,16 @@
 ---
-name: redaction-quebec
+name: quebecois
 description: |
-  Applique les normes de rédaction du français québécois (OQLF) et humanise le texte en supprimant les patrons d'écriture IA. Couvre l'espacement de la ponctuation, l'écriture des nombres et symboles monétaires, les adjectifs ordinaux, les rectifications orthographiques de 1990, la rédaction épicène, les majuscules institutionnelles et la détection/réécriture de 23 patrons artificiels (mise en scène, triades forcées, inflation, gras décoratif, résidus de robot conversationnel, etc.). Utilise ce skill dès qu'un texte français est rédigé, corrigé, révisé, traduit, humanisé ou reformaté pour un public québécois ou canadien-français, ou dès que l'utilisateur mentionne le Québec, l'OQLF, la BDL, le GDT, la rédaction épicène, l'humanisation ou des « normes québécoises », même sans le mot Québec si le contexte est manifestement québécois.
+  Révise et humanise un texte français pour qu'il respecte les normes de l'Office québécois de la langue française (OQLF) et qu'il sonne comme l'écriture d'un humain, pas d'un robot. En une seule passe, corrige l'espacement de la ponctuation, l'écriture des nombres et symboles monétaires, les ordinaux, les rectifications orthographiques de 1990, la rédaction épicène, les majuscules institutionnelles, et détecte puis réécrit 23 patrons d'écriture artificielle (mise en scène, triades, inflation, gras décoratif, résidus de robot conversationnel, etc.). Utilise ce skill dès qu'un texte français est rédigé, corrigé, révisé, traduit, humanisé ou reformaté pour un public québécois ou canadien-français, ou dès que l'utilisateur mentionne le Québec, l'OQLF, la BDL, le GDT, la rédaction épicène, l'humanisation ou des normes québécoises.
 ---
 
-# Rédaction Québec
+# Québécois
 
-Ce skill transforme un texte français pour qu'il respecte les normes institutionnelles de l'OQLF et qu'il sonne comme l'écriture d'un humain, pas d'un robot. Il corrige la typographie québécoise ET supprime les patrons d'écriture artificielle en une seule passe.
+Un seul skill pour deux objectifs : rendre un texte français conforme aux normes institutionnelles de l'OQLF et le faire sonner comme l'écriture d'un humain. Typographie québécoise et humanisation en une seule passe.
 
 ## Portée
 
-Le skill couvre six axes. Les cinq premiers sont des normes OQLF objectives. Le sixième est l'humanisation du texte.
+Le skill couvre six axes. Les cinq premiers sont des normes OQLF objectives. Le sixième est l'humanisation du texte. Ne pas modifier le vocabulaire, la syntaxe ou le style au-delà de ces six axes. Garder chaque affirmation étayée. Ne jamais ajouter un fait, un nom, un chiffre, une date ou une citation absents de la source.
 
 1. Espacement de la ponctuation
 2. Écriture des nombres, symboles et monnaie
@@ -18,8 +18,6 @@ Le skill couvre six axes. Les cinq premiers sont des normes OQLF objectives. Le 
 4. Majuscules institutionnelles
 5. Uniformité des rectifications orthographiques de 1990
 6. Suppression des patrons d'écriture IA
-
-Ne pas modifier le vocabulaire, la syntaxe ou le style au-delà de ces six axes. Garder chaque affirmation étayée. Ne jamais ajouter un fait, un nom, un chiffre, une date ou une citation absents de la source.
 
 ## Ordre de traitement (toujours dans cet ordre)
 
@@ -60,12 +58,12 @@ Les 23 patrons sont classés du plus fort au plus faible. Les patrons §1 à §5
 
 Consulte `references/humanisation.md` pour la définition complète, les exemples avant/après et la méthode de travail.
 
-## Méthode de travail pour l'humanisation
+## Méthode de travail
 
-1. **Repérer.** Lire le texte en entier et marquer chaque patron, du plus fort au plus faible. Observer la forme des paragraphes autant que les phrases.
+1. **Repérer.** Lire le texte en entier. Corriger d'abord la ponctuation, les nombres, l'épicène, les majuscules et l'orthographe (étapes 1 à 5). Puis marquer chaque patron d'écriture IA, du plus fort au plus faible.
 2. **Réécrire.** Garder chaque affirmation étayée. On peut raccourcir, fusionner ou scinder des paragraphes, mais conserver l'information. Ne rien inventer.
-3. **Vérifier.** Relire à voix haute. Chercher les cinq patrons qui survivent le plus souvent : un contraste pas-X-mais-Y, une chute d'une ligne, un tiret cadratin, une triade, une étiquette en gras. Vérifier qu'aucun fait n'a été ajouté ni perdu.
-4. **Finaliser.** Énoncer chaque point naturellement. Varier la longueur des phrases. Puis repasser les étapes 1 à 5 (normes OQLF) sur le texte humanisé.
+3. **Vérifier.** Relire à voix haute. Chercher les cinq patrons qui survivent le plus souvent : un contraste pas-X-mais-Y, une chute d'une ligne, un tiret cadratin, une triade, une étiquette en gras. Vérifier qu'aucun fait n'a été ajouté ni perdu. Repasser les étapes 1 à 5 sur le texte humanisé.
+4. **Finaliser.** Énoncer chaque point naturellement. Varier la longueur des phrases.
 
 ### Voix
 
@@ -75,13 +73,13 @@ Sans échantillon, ajuster la voix au type de texte. Billets de blogue, essais e
 
 ## À ne jamais faire
 
-- Point médian, tiret ou parenthèse pour fusionner féminin/masculin dans un texte suivi (`étudiant·e·s`, `directeur.trice`) — toujours reformuler en doublet complet ou tournure neutre.
+- Point médian, tiret ou parenthèse pour fusionner féminin/masculin (`étudiant·e·s`, `directeur.trice`).
 - Pronoms ou néologismes neutres non binaires (`iel`, `illes`) : l'OQLF ne les reconnait pas.
 - Mélanger graphie traditionnelle et graphie rectifiée de 1990 pour un même mot dans un même texte.
-- Majuscule à un titre de fonction (« le premier ministre », jamais « le Premier Ministre »), même en s'adressant directement à la personne.
-- Espace avant `;`, `!` ou `?` — contrairement à la norme française hexagonale.
-- Ajouter un fait, un nom, un chiffre, une date ou une citation absents de la source lors de l'humanisation.
-- Laisser des résidus de robot conversationnel (« J'espère que cela vous aide! », « Excellente question! »).
+- Majuscule à un titre de fonction (« le premier ministre », jamais « le Premier Ministre »).
+- Espace avant `;`, `!` ou `?`.
+- Ajouter un fait, un nom, un chiffre ou une citation absents de la source.
+- Laisser des résidus de robot conversationnel (« J'espère que cela vous aide! »).
 - Présenter une supposition comme un fait (« il a probablement grandi à… »).
 
 ## Exemple condensé
@@ -98,11 +96,11 @@ Le premier ministre a affirmé : « La mesure est jugée "prioritaire" par le co
 
 Corrections appliquées :
 - §20 Résidu de robot : « Excellente question! » supprimé.
-- OQLF ponctuation : espace retirée avant `!`, guillemets de 2e niveau corrigés.
-- OQLF nombres : virgule décimale, espace insécable pour les milliers, `$` à droite.
-- OQLF épicène : doublet complet au lieu du point médian.
-- OQLF majuscules : « premier ministre » en minuscule.
+- Ponctuation OQLF : espace retirée avant `!`, guillemets de 2e niveau corrigés.
+- Nombres OQLF : virgule décimale, espace insécable pour les milliers, `$` à droite.
+- Épicène OQLF : doublet complet au lieu du point médian.
+- Majuscules OQLF : « premier ministre » en minuscule.
 - §1 Pas X mais Y : contraste « pas seulement… c'est » remplacé par l'affirmation directe.
 - §8 Tiret cadratin : supprimé, phrase restructurée.
 - §12 Importance gonflée : « moment charnière » remplacé par l'effet concret.
-- §2 Chute d'une ligne : « Voilà le véritable enjeu. » supprimé (répétait le paragraphe).
+- §2 Chute d'une ligne : « Voilà le véritable enjeu. » supprimé.
