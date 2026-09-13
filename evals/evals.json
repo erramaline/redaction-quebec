@@ -91,6 +91,20 @@
       "prompt": "Humanise et corrige ce texte selon les normes québécoises : « Excellente question ! Le Premier Ministre a affirmé : « La mesure est jugée « prioritaire » par le comité » ! Le budget est de 1250.50$, soit 5% de plus, pour les étudiant·e·s. Ce n'est pas seulement une question de chiffres — c'est un moment charnière. Voilà le véritable enjeu. »",
       "expected_output": "« Le premier ministre a affirmé : « La mesure est jugée \"prioritaire\" par le comité »! Le budget est de 1 250,50 $, soit 5 % de plus, pour les étudiantes et étudiants. La hausse aura des conséquences directes sur le financement. » — Corrections combinées OQLF (ponctuation, nombres, épicène, majuscules) et humanisation (§20 résidu de robot, §1 pas-X-mais-Y, §8 tiret cadratin, §12 importance gonflée, §2 chute d'une ligne).",
       "files": []
+    },
+    {
+      "id": 14,
+      "category": "oqlf-civilites-abreviations",
+      "prompt": "Corrige ce texte selon les normes de rédaction québécoises : « Mme. la directrice a reçu le Dr. Roy et M Gagnon au bureau. »",
+      "expected_output": "« Mme la directrice a reçu le Dr Roy et M. Gagnon au bureau. » — aucun point abréviatif à Mme et Dr (la dernière lettre du mot est conservée), point abréviatif obligatoire à M. (coupure interne).",
+      "files": []
+    },
+    {
+      "id": 15,
+      "category": "oqlf-ordinaux",
+      "prompt": "Corrige ce texte selon les normes de rédaction québécoises : « Pour la 2ème fois, le candidat accède au 2eme tour du scrutin. »",
+      "expected_output": "« Pour la 2e fois, le candidat accède au 2d tour du scrutin. » — remplacement des graphies fautives 2ème/2eme par 2e, et emploi recommandé de 2d (second) pour un scrutin à deux tours.",
+      "files": []
     }
   ]
 }

@@ -11,7 +11,7 @@
 [![Normes OQLF](https://img.shields.io/badge/Normes-OQLF-003399?style=for-the-badge&logo=quebec&logoColor=white)](https://www.oqlf.gouv.qc.ca/)
 [![Patrons IA](https://img.shields.io/badge/Patrons_IA_éliminés-23-FF6B6B?style=for-the-badge)](references/humanisation.md)
 [![Axes couverts](https://img.shields.io/badge/Axes_linguistiques-6-4ECDC4?style=for-the-badge)](#-les-six-axes)
-[![Cas de test](https://img.shields.io/badge/Evals_validés-13-9B59B6?style=for-the-badge)](evals/evals.json)
+[![Cas de test](https://img.shields.io/badge/Evals_validés-15-9B59B6?style=for-the-badge)](evals/evals.json)
 [![Licence MIT](https://img.shields.io/badge/Licence-MIT-2ECC71?style=for-the-badge)](LICENSE)
 
 <br/>
@@ -115,7 +115,7 @@ graph LR
 | # | Axe | Règle principale OQLF / Humanisation | Référence détaillée |
 |:---:|:---|:---|:---:|
 | **1** | **Ponctuation haute** | **Aucune espace** avant `; ! ?`. Deux-points avec insécable. Guillemets anglais `" "` au 2ᵉ niveau. | [`ponctuation.md`](references/ponctuation.md) |
-| **2** | **Nombres & symboles** | Virgule décimale (`12,5`), espace insécable des milliers (`10 000`), symbole `$` à droite (`100 $`), espace avant `%`. | [`nombres-et-symboles.md`](references/nombres-et-symboles.md) |
+| **2** | **Nombres, symboles & abréviations** | Virgule décimale (`12,5`), insécable réelle (`\u00A0` / `&nbsp;`), `$` à droite (`100 $`), abréviations sans point (`Mme`, `Dr` vs `M.`), ordinaux (`2d` vs `2e`). | [`nombres-et-symboles.md`](references/nombres-et-symboles.md) |
 | **3** | **Rédaction épicène** | Formulations neutres ou doublets complets. **Jamais de point médian** (`·`), tiret ou parenthèses tronquées. | [`redaction-epicene.md`](references/redaction-epicene.md) |
 | **4** | **Majuscules institutionnelles** | **Minuscule aux titres et charges** (*le premier ministre, la directrice*). Majuscule au 1er mot des unités administratives. | [`majuscules.md`](references/majuscules.md) |
 | **5** | **Orthographe de 1990** | Tolérance égale, mais **stricte uniformité** dans un même document (pas de mélange *août* / *aout*). | [`orthographe-1990.md`](references/orthographe-1990.md) |
@@ -152,9 +152,12 @@ Pour comprendre pourquoi vos textes ont besoin de ce skill :
 |:---|:---|:---|
 | **Espace avant `; ! ?`** | ❌ **Aucune espace** (`Bonjour!`) | ✅ Espace fine insécable (`Bonjour !`) |
 | **Symbole monétaire** | À droite avec insécable : `150 $` | Parfois avant le montant ou sans espace stricte |
-| **Pourcentage & unités** | Toujours une espace : `15 %`, `10 km` | Identique en typographie soignée |
+| **Pourcentage & unités** | Toujours une espace insécable : `15 %`, `10 km` | Identique en typographie soignée |
+| **Espace insécable Web** | Caractère `\u00A0` ou `&nbsp;` obligatoire | Parfois négligé en sortie brute |
 | **Citations imbriquées** | `« 1er niveau "2e niveau" 1er niveau »` | `« 1er niveau « 2e niveau » 1er niveau »` |
 | **Titres de fonction** | **Toujours en minuscule** : *le premier ministre* | Majuscule de déférence admise : *le Premier Ministre* |
+| **Abréviations de civilité** | Sans point si dernière lettre gardée (`Mme`, `Dr`, `Me`) | Calque anglais avec point parfois toléré (`Mme.`, `Dr.`) |
+| **Ordinaux (second vs deuxième)** | Distinction recommandée : `2d`/`2de` (série de deux) vs `2e` | Généralisation de `2e` partout |
 | **Écriture inclusive** | Doublets complets ou formulation neutre | Point médian parfois toléré (`citoyen·ne·s`) |
 | **Pronom non binaire** | Non reconnu par l'OQLF (*iel* à reformuler) | Utilisé par certains collectifs |
 
@@ -396,6 +399,8 @@ jq '.evals[] | {id: .id, category: .category, prompt: .prompt}' evals/evals.json
 | `11` | `humanisation-gras-decoratif` | Transformation de listes à puces grasses en prose fluide |
 | `12` | `humanisation-importance-gonflee` | Suppression des hyperboles (*« moment charnière »*, *« bonifier »*) |
 | `13` | `humanisation-combinee-oqlf` | Test d'intégration complet combinant l'ensemble des règles |
+| `14` | `oqlf-civilites-abreviations` | Civilités sans point (`Mme`, `Dr`) vs coupure interne avec point (`M.`) |
+| `15` | `oqlf-ordinaux` | Formes d'ordinaux (`2e`, `2d`/`2de`) et élimination des formes proscrites (`2ème`) |
 
 ---
 
@@ -408,14 +413,14 @@ redaction-quebec/
 │
 ├── references/                  # Documentation approfondie par domaine
 │   ├── ponctuation.md           # Normes typographiques et espacements OQLF
-│   ├── nombres-et-symboles.md   # Séparateurs, devises, unités, ordinaux
+│   ├── nombres-et-symboles.md   # Séparateurs, devises, unités, ordinaux, civilités
 │   ├── redaction-epicene.md     # Formulation neutre et doublets complets
 │   ├── majuscules.md            # Titres de fonction, ministères, lois
 │   ├── orthographe-1990.md      # Principes de cohérence et rectifications
 │   └── humanisation.md         # Guide détaillé des 23 patrons d'écriture IA
 │
 ├── evals/
-│   └── evals.json               # 13 cas d'évaluation standardisés
+│   └── evals.json               # 15 cas d'évaluation standardisés
 │
 ├── LICENSE                      # Licence MIT
 └── README.md                    # Guide visuel complet et documentation

@@ -1,7 +1,7 @@
 ---
 name: quebecois
 description: |
-  Révise et humanise un texte français pour qu'il respecte les normes de l'Office québécois de la langue française (OQLF) et qu'il sonne comme l'écriture d'un humain, pas d'un robot. En une seule passe, corrige l'espacement de la ponctuation, l'écriture des nombres et symboles monétaires, les ordinaux, les rectifications orthographiques de 1990, la rédaction épicène, les majuscules institutionnelles, et détecte puis réécrit 23 patrons d'écriture artificielle (mise en scène, triades, inflation, gras décoratif, résidus de robot conversationnel, etc.). Utilise ce skill dès qu'un texte français est rédigé, corrigé, révisé, traduit, humanisé ou reformaté pour un public québécois ou canadien-français, ou dès que l'utilisateur mentionne le Québec, l'OQLF, la BDL, le GDT, la rédaction épicène, l'humanisation ou des normes québécoises.
+  Révise et humanise un texte français pour qu'il respecte les normes de l'Office québécois de la langue française (OQLF) et qu'il sonne comme l'écriture d'un humain, pas d'un robot. En une seule passe, corrige l'espacement de la ponctuation, l'écriture des nombres et symboles monétaires, les espaces insécables réelles (\u00A0 ou &nbsp;), les abréviations de civilité sans point (Mme, Dr vs M.), les ordinaux (2d/2de vs 2e), les rectifications orthographiques de 1990, la rédaction épicène, les majuscules institutionnelles, et détecte puis réécrit 23 patrons d'écriture artificielle (mise en scène, triades, inflation, gras décoratif, résidus de robot conversationnel, etc.). Utilise ce skill dès qu'un texte français est rédigé, corrigé, révisé, traduit, humanisé ou reformaté pour un public québécois ou canadien-français, ou dès que l'utilisateur mentionne le Québec, l'OQLF, la BDL, le GDT, la rédaction épicène, l'humanisation ou des normes québécoises.
 ---
 
 # Québécois
@@ -13,7 +13,7 @@ Un seul skill pour deux objectifs : rendre un texte français conforme aux norme
 Le skill couvre six axes. Les cinq premiers sont des normes OQLF objectives. Le sixième est l'humanisation du texte. Ne pas modifier le vocabulaire, la syntaxe ou le style au-delà de ces six axes. Garder chaque affirmation étayée. Ne jamais ajouter un fait, un nom, un chiffre, une date ou une citation absents de la source.
 
 1. Espacement de la ponctuation
-2. Écriture des nombres, symboles et monnaie
+2. Écriture des nombres, symboles, monnaie et abréviations
 3. Rédaction épicène
 4. Majuscules institutionnelles
 5. Uniformité des rectifications orthographiques de 1990
@@ -22,7 +22,7 @@ Le skill couvre six axes. Les cinq premiers sont des normes OQLF objectives. Le 
 ## Ordre de traitement (toujours dans cet ordre)
 
 1. **Ponctuation haute** — retirer les espaces avant `; ! ?`, valider les guillemets, les deux-points et les points de suspension → voir `references/ponctuation.md`
-2. **Données chiffrées** — repositionner les symboles monétaires, valider la virgule décimale, les espaces insécables et les ordinaux → voir `references/nombres-et-symboles.md`
+2. **Données chiffrées et abréviations** — repositionner les symboles monétaires, valider la virgule décimale, insérer l'espace insécable réelle (`\u00A0` ou `&nbsp;` en Web/HTML), vérifier les ordinaux (`2d`/`2de` vs `2e`) et les abréviations (pas de point à `Mme`, `Dr`, `Me` ; point à `M.`) → voir `references/nombres-et-symboles.md`
 3. **Rédaction épicène** — remplacer points médians/parenthèses par une formulation neutre ou un doublet complet → voir `references/redaction-epicene.md`
 4. **Majuscules institutionnelles** — minuscule aux titres de fonction, majuscule aux lois/unités administratives → voir `references/majuscules.md`
 5. **Uniformité orthographique** — vérifier qu'aucun mot ne coexiste sous sa forme traditionnelle et sa forme rectifiée dans le même texte → voir `references/orthographe-1990.md`
@@ -44,6 +44,20 @@ Les étapes 1 à 5 sont des corrections mécaniques. L'étape 6 est une réécri
 
 Consulte `references/ponctuation.md` pour les cas particuliers (heures, jonctions de signes adjacents, contextes Web restreints).
 
+## Référence rapide — nombres, symboles et abréviations
+
+| Élément | Norme OQLF | Forme à corriger |
+|---|---|---|
+| **Espace insécable** | Réelle `\u00A0` ou entité `&nbsp;` (`100 $`, `5 %`) | Espace ordinaire sécable |
+| **Séparateur décimal** | Virgule : `12,5` | Point : `12.5` |
+| **Milliers** | Espace insécable : `10 000` | Virgule ou point : `10,000` / `10.000` |
+| **Symbole monétaire** | À droite avec insécable : `24,99 $` | À gauche ou collé : `$24.99` / `24.99$` |
+| **Ordinaux** | `1er`, `1re`, `2d`/`2de` (série de deux), `2e` (série de trois+) | `1ere`, `1ère`, `2ème`, `2eme` |
+| **Civilités sans point** | Dernière lettre conservée : `Mme`, `Dr`, `Me` | Calque anglais avec point : `Mme.`, `Dr.`, `Me.` |
+| **Civilités avec point** | Coupure interne obligatoire : `M.`, `prof.`, `dir.` | Sans point : `M Tremblay` |
+
+Consulte `references/nombres-et-symboles.md` pour les règles complètes et les contextes Web.
+
 ## Référence rapide — patrons d'écriture IA
 
 Les 23 patrons sont classés du plus fort au plus faible. Les patrons §1 à §5 justifient une intervention dès la première occurrence. Les patrons marqués *faible seul* ont besoin de la compagnie d'autres patrons dans le même passage.
@@ -60,7 +74,7 @@ Consulte `references/humanisation.md` pour la définition complète, les exemple
 
 ## Méthode de travail
 
-1. **Repérer.** Lire le texte en entier. Corriger d'abord la ponctuation, les nombres, l'épicène, les majuscules et l'orthographe (étapes 1 à 5). Puis marquer chaque patron d'écriture IA, du plus fort au plus faible.
+1. **Repérer.** Lire le texte en entier. Corriger d'abord la ponctuation, les nombres, les abréviations, l'épicène, les majuscules et l'orthographe (étapes 1 à 5). Puis marquer chaque patron d'écriture IA, du plus fort au plus faible.
 2. **Réécrire.** Garder chaque affirmation étayée. On peut raccourcir, fusionner ou scinder des paragraphes, mais conserver l'information. Ne rien inventer.
 3. **Vérifier.** Relire à voix haute. Chercher les cinq patrons qui survivent le plus souvent : un contraste pas-X-mais-Y, une chute d'une ligne, un tiret cadratin, une triade, une étiquette en gras. Vérifier qu'aucun fait n'a été ajouté ni perdu. Repasser les étapes 1 à 5 sur le texte humanisé.
 4. **Finaliser.** Énoncer chaque point naturellement. Varier la longueur des phrases.
@@ -78,6 +92,8 @@ Sans échantillon, ajuster la voix au type de texte. Billets de blogue, essais e
 - Mélanger graphie traditionnelle et graphie rectifiée de 1990 pour un même mot dans un même texte.
 - Majuscule à un titre de fonction (« le premier ministre », jamais « le Premier Ministre »).
 - Espace avant `;`, `!` ou `?`.
+- Point abréviatif aux abréviations conservant la dernière lettre (`Mme.`, `Dr.`, `Me.` proscrits au lieu de `Mme`, `Dr`, `Me`).
+- Omettre le point abréviatif aux coupures internes (`M.` obligatoire, jamais `M Tremblay`).
 - Ajouter un fait, un nom, un chiffre ou une citation absents de la source.
 - Laisser des résidus de robot conversationnel (« J'espère que cela vous aide! »).
 - Présenter une supposition comme un fait (« il a probablement grandi à… »).
@@ -86,20 +102,22 @@ Sans échantillon, ajuster la voix au type de texte. Billets de blogue, essais e
 
 Entrée :
 ```
-Excellente question! Le Premier Ministre a affirmé : « La mesure est jugée « prioritaire » par le comité » ! Le budget est de 1250.50$, soit 5% de plus, pour les étudiant·e·s. Ce n'est pas seulement une question de chiffres — c'est un moment charnière pour l'avenir de l'éducation. Voilà le véritable enjeu.
+Excellente question! Mme. la Directrice a affirmé que le Dr. Roy rencontrera M Tremblay pour la 2ème fois : « La mesure est « prioritaire » ! » Le budget est de 1250.50$, soit 5% de plus, pour les étudiant·e·s. Ce n'est pas seulement une question de chiffres — c'est un moment charnière. Voilà le véritable enjeu.
 ```
 
 Sortie :
 ```
-Le premier ministre a affirmé : « La mesure est jugée "prioritaire" par le comité »! Le budget est de 1 250,50 $, soit 5 % de plus, pour les étudiantes et étudiants. La hausse aura des conséquences directes sur le financement de l'éducation.
+La directrice a affirmé que le Dr Roy rencontrera M. Tremblay pour la 2e fois : « La mesure est "prioritaire"! » Le budget est de 1 250,50 $, soit 5 % de plus, pour les étudiantes et étudiants. La hausse aura des conséquences directes sur le financement.
 ```
 
 Corrections appliquées :
 - §20 Résidu de robot : « Excellente question! » supprimé.
-- Ponctuation OQLF : espace retirée avant `!`, guillemets de 2e niveau corrigés.
-- Nombres OQLF : virgule décimale, espace insécable pour les milliers, `$` à droite.
+- Abréviations OQLF : `Mme.` → `Mme` (sans point), `Dr.` → `Dr` (sans point), `M ` → `M.` (point obligatoire).
+- Ordinal OQLF : `2ème` corrigé en `2e`.
+- Ponctuation OQLF : espace retirée avant `!`, guillemets de 2e niveau corrigés en `" "`.
+- Nombres OQLF : virgule décimale, espace insécable pour les milliers, `$` à droite avec espace insécable.
 - Épicène OQLF : doublet complet au lieu du point médian.
-- Majuscules OQLF : « premier ministre » en minuscule.
+- Majuscules OQLF : « directrice » en minuscule.
 - §1 Pas X mais Y : contraste « pas seulement… c'est » remplacé par l'affirmation directe.
 - §8 Tiret cadratin : supprimé, phrase restructurée.
 - §12 Importance gonflée : « moment charnière » remplacé par l'effet concret.
