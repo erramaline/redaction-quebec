@@ -1,0 +1,41 @@
+{
+  "skill_name": "redaction-quebec",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Corrige ce texte selon les normes de rédaction québécoises : « Es-tu certain de vouloir continuer ? »",
+      "expected_output": "« Es-tu certain de vouloir continuer? » — aucune espace avant le point d'interrogation.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Corrige ce texte selon les normes de rédaction québécoises : « Le montant total est de 1250.50$, ce qui représente une hausse de 5%. »",
+      "expected_output": "« Le montant total est de 1 250,50 $, ce qui représente une hausse de 5 %. » — virgule décimale, espace insécable pour les milliers, symbole $ à droite avec espace, espace avant %.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Corrige ce texte selon les normes de rédaction québécoises : « Les étudiant·e·s doivent remettre leur travail avant le 1ère novembre. »",
+      "expected_output": "« Les étudiantes et étudiants doivent remettre leur travail avant le 1er novembre. » — doublet complet plutôt que point médian, ordinal masculin correct pour une date.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Corrige ce texte selon les normes de rédaction québécoises : « Le Premier Ministre a rencontré la Directrice du Service de la Comptabilité. »",
+      "expected_output": "« Le premier ministre a rencontré la directrice du Service de la comptabilité. » — minuscule aux titres de fonction, majuscule seulement au premier mot constitutif de l'unité administrative, majuscule de début de phrase conservée.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Corrige ce texte selon les normes de rédaction québécoises : « Le congrès aura lieu en août ; nous ferons le point sur l'évènement de l'an dernier, qui avait eu lieu en aout. »",
+      "expected_output": "« Le congrès aura lieu en août; nous ferons le point sur l'évènement de l'an dernier, qui avait eu lieu en août. » — uniformisation de la graphie de « août » dans tout le texte, aucune espace avant le point-virgule.",
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "Corrige ce texte selon les normes de rédaction québécoises : « Le rapport souligne que la mesure est « jugée urgente » par les experts. »",
+      "expected_output": "« Le rapport souligne que la mesure est \"jugée urgente\" par les experts. » — guillemets anglais pour la citation enchâssée de second niveau, jamais deux paires de guillemets français emboîtées.",
+      "files": []
+    }
+  ]
+}
