@@ -11,7 +11,7 @@
 [![Normes OQLF](https://img.shields.io/badge/Normes-OQLF-003399?style=for-the-badge&logo=quebec&logoColor=white)](https://www.oqlf.gouv.qc.ca/)
 [![Patrons IA](https://img.shields.io/badge/Patrons_IA_éliminés-23-FF6B6B?style=for-the-badge)](references/humanisation.md)
 [![Axes couverts](https://img.shields.io/badge/Axes_linguistiques-6-4ECDC4?style=for-the-badge)](#-les-six-axes)
-[![Cas de test](https://img.shields.io/badge/Evals_validés-15-9B59B6?style=for-the-badge)](evals/evals.json)
+[![Cas de test](https://img.shields.io/badge/Evals_validés-19-9B59B6?style=for-the-badge)](evals/evals.json)
 [![Licence MIT](https://img.shields.io/badge/Licence-MIT-2ECC71?style=for-the-badge)](LICENSE)
 
 <br/>
@@ -108,8 +108,9 @@ graph LR
     C --> D[3. Rédaction épicène]
     D --> E[4. Majuscules de fonction]
     E --> F[5. Orthographe 1990]
-    F --> G[6. Humanisation 23 patrons]
-    G --> H[Texte final vivant & conforme]
+    F --> G[6. Humanisation (couche mécanique)]
+    G --> H[7. Humanisation (couche profonde)]
+    H --> I[Texte final vivant & conforme]
 ```
 
 | # | Axe | Règle principale OQLF / Humanisation | Référence détaillée |
@@ -119,9 +120,21 @@ graph LR
 | **3** | **Rédaction épicène** | Formulations neutres ou doublets complets. **Jamais de point médian** (`·`), tiret ou parenthèses tronquées. | [`redaction-epicene.md`](references/redaction-epicene.md) |
 | **4** | **Majuscules institutionnelles** | **Minuscule aux titres et charges** (*le premier ministre, la directrice*). Majuscule au 1er mot des unités administratives. | [`majuscules.md`](references/majuscules.md) |
 | **5** | **Orthographe de 1990** | Tolérance égale, mais **stricte uniformité** dans un même document (pas de mélange *août* / *aout*). | [`orthographe-1990.md`](references/orthographe-1990.md) |
-| **6** | **Humanisation du texte** | Détection et réécriture de **23 patrons artificiels** (triades, mise en scène, langage vendeur, gras superflu). | [`humanisation.md`](references/humanisation.md) |
+| **6 & 7** | **Humanisation à deux couches** | Couche mécanique (23 patrons) et couche profonde (12 principes de voix humaine, rythme, transitions). | [`humanisation.md`](references/humanisation.md) |
 
 ---
+
+## 🧠 L'humanisation à deux couches
+
+Le skill `quebecois` ne se contente pas d'éliminer les « mots d'IA ». Il effectue un remodelage structurel du texte.
+
+1. **La couche mécanique (23 patrons)** : traque les tics visibles (ex: *« Plongeons dans... »*, triades forcées, mots boursouflés comme *« crucial »* ou *« enjeu »*).
+2. **La couche profonde (12 principes)** : casse la symétrie artificielle des paragraphes, supprime les enchaînements scolaires (*« Cela dit... En effet... En ce sens... »*), évite la sur-explication, et adopte le rythme d'une personne réelle.
+
+### 3 niveaux d'intervention
+- **Standard** : Adapté au type de texte (sans échantillon).
+- **Académique** : Humain, rigoureux, crédible, sans être conversationnel.
+- **Personnelle** : Analyse votre empreinte de voix (longueur de phrase, connecteurs, nuances) à partir d'un échantillon pour rédiger à votre place.
 
 ## 🤖 Patrons IA éliminés
 
@@ -401,6 +414,10 @@ jq '.evals[] | {id: .id, category: .category, prompt: .prompt}' evals/evals.json
 | `13` | `humanisation-combinee-oqlf` | Test d'intégration complet combinant l'ensemble des règles |
 | `14` | `oqlf-civilites-abreviations` | Civilités sans point (`Mme`, `Dr`) vs coupure interne avec point (`M.`) |
 | `15` | `oqlf-ordinaux` | Formes d'ordinaux (`2e`, `2d`/`2de`) et élimination des formes proscrites (`2ème`) |
+| `16` | `humanisation-regularite` | Cassure des structures de paragraphe artificiellement symétriques |
+| `17` | `humanisation-transitions` | Suppression de l'accumulation de transitions génériques |
+| `18` | `humanisation-sur-explication` | Réduction du ton scolaire et des définitions superflues |
+| `19` | `humanisation-vocabulaire-soutenu` | Remplacement du jargon (ex: *« dynamique », « levier »*) par des mots simples |
 
 ---
 
@@ -420,7 +437,7 @@ redaction-quebec/
 │   └── humanisation.md         # Guide détaillé des 23 patrons d'écriture IA
 │
 ├── evals/
-│   └── evals.json               # 15 cas d'évaluation standardisés
+│   └── evals.json               # 19 cas d'évaluation standardisés
 │
 ├── LICENSE                      # Licence MIT
 └── README.md                    # Guide visuel complet et documentation

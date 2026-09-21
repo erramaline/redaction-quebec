@@ -1,23 +1,25 @@
 ---
 name: quebecois
 description: |
-  Révise et humanise un texte français pour qu'il respecte les normes de l'Office québécois de la langue française (OQLF) et qu'il sonne comme l'écriture d'un humain, pas d'un robot. En une seule passe, corrige l'espacement de la ponctuation, l'écriture des nombres et symboles monétaires, les espaces insécables réelles, les abréviations de civilité sans point (Mme, Dr vs M.), les ordinaux (2d/2de vs 2e), les rectifications orthographiques de 1990, la rédaction épicène, les majuscules institutionnelles, et détecte puis réécrit 23 patrons d'écriture artificielle (mise en scène, triades, inflation, gras décoratif, résidus de robot conversationnel, etc.). Utilise ce skill dès qu'un texte français est rédigé, corrigé, révisé, traduit, humanisé ou reformaté pour un public québécois ou canadien-français, ou dès que l'utilisateur mentionne le Québec, l'OQLF, la BDL, le GDT, la rédaction épicène, l'humanisation ou des normes québécoises.
+  Révise et humanise un texte français pour qu'il respecte les normes de l'Office québécois de la langue française (OQLF) et qu'il sonne comme l'écriture d'un humain, pas d'un robot. En une seule passe, corrige l'espacement de la ponctuation, l'écriture des nombres et symboles monétaires, les espaces insécables réelles, les abréviations de civilité sans point (Mme, Dr vs M.), les ordinaux (2d/2de vs 2e), les rectifications orthographiques de 1990, la rédaction épicène, les majuscules institutionnelles, puis détecte 23 patrons d'écriture artificielle et applique 12 principes d'humanisation profonde (régularité structurelle, transitions scolaires, vocabulaire artificiellement soutenu, sur-explication, symétrie, dépolissage). Utilise ce skill dès qu'un texte français est rédigé, corrigé, révisé, traduit, humanisé ou reformaté pour un public québécois ou canadien-français, ou dès que l'utilisateur mentionne le Québec, l'OQLF, la BDL, le GDT, la rédaction épicène, l'humanisation ou des normes québécoises.
 ---
 
 # Québécois
 
-Un seul skill pour deux objectifs : rendre un texte français conforme aux normes institutionnelles de l'OQLF et le faire sonner comme l'écriture d'un humain. Typographie québécoise et humanisation en une seule passe.
+Un seul skill pour deux objectifs : rendre un texte français conforme aux normes institutionnelles de l'OQLF et le faire sonner comme l'écriture d'une personne réelle. Typographie québécoise et humanisation profonde en une seule passe.
 
 ## Portée
 
-Le skill couvre six axes. Les cinq premiers sont des normes OQLF objectives. Le sixième est l'humanisation du texte. Ne pas modifier le vocabulaire, la syntaxe ou le style au-delà de ces six axes. Garder chaque affirmation étayée. Ne jamais ajouter un fait, un nom, un chiffre, une date ou une citation absents de la source.
+Le skill couvre six axes. Les cinq premiers sont des normes OQLF objectives. Le sixième est l'humanisation profonde du texte. Garder chaque affirmation étayée. Ne jamais ajouter un fait, un nom, un chiffre, une date ou une citation absents de la source.
+
+L'humanisation autorise (et exige parfois) de modifier la structure des phrases, le vocabulaire, les transitions et l'architecture des paragraphes. Elle n'autorise jamais d'inventer du contenu, d'ajouter des opinions fictives ou d'introduire des fautes.
 
 1. Espacement de la ponctuation
 2. Écriture des nombres, symboles, monnaie et abréviations
 3. Rédaction épicène
 4. Majuscules institutionnelles
 5. Uniformité des rectifications orthographiques de 1990
-6. Suppression des patrons d'écriture IA
+6. Humanisation profonde (23 patrons IA + 12 principes de voix humaine)
 
 ## Ordre de traitement (toujours dans cet ordre)
 
@@ -26,9 +28,10 @@ Le skill couvre six axes. Les cinq premiers sont des normes OQLF objectives. Le 
 3. **Rédaction épicène** — remplacer points médians/parenthèses par une formulation neutre ou un doublet complet → voir `references/redaction-epicene.md`
 4. **Majuscules institutionnelles** — minuscule aux titres de fonction, majuscule aux lois/unités administratives → voir `references/majuscules.md`
 5. **Uniformité orthographique** — vérifier qu'aucun mot ne coexiste sous sa forme traditionnelle et sa forme rectifiée dans le même texte → voir `references/orthographe-1990.md`
-6. **Humanisation** — repérer et réécrire les patrons d'écriture IA (§1 à §23), en respectant les normes OQLF dans chaque réécriture → voir `references/humanisation.md`
+6. **Humanisation mécanique** — repérer et réécrire les 23 patrons d'écriture IA (§1 à §23), en respectant les normes OQLF dans chaque réécriture → voir `references/humanisation.md`, partie A
+7. **Humanisation profonde** — appliquer les 12 principes : casser la régularité, réduire les transitions, supprimer la sur-explication, ajuster le vocabulaire, vérifier la plausibilité humaine, dépolir le texte → voir `references/humanisation.md`, partie B
 
-Les étapes 1 à 5 sont des corrections mécaniques. L'étape 6 est une réécriture qui exige du jugement. En cas de conflit, les normes OQLF (étapes 1 à 5) ont toujours priorité sur l'humanisation.
+Les étapes 1 à 5 sont des corrections mécaniques. L'étape 6 est une réécriture mécanique de patrons. L'étape 7 est une réécriture profonde qui exige du jugement. En cas de conflit, les normes OQLF (étapes 1 à 5) ont toujours priorité.
 
 ## Référence rapide — espacement de la ponctuation
 
@@ -48,7 +51,7 @@ Consulte `references/ponctuation.md` pour les cas particuliers (heures, jonction
 
 | Élément | Norme OQLF | Forme à corriger |
 |---|---|---|
-| **Espace insécable** | Réelle `\u00A0` ou entité `&nbsp;` (`100 $`, `5 %`) | Espace ordinaire sécable |
+| **Espace insécable** | Réelle U+00A0 ou entité HTML (`100 $`, `5 %`) | Espace ordinaire sécable |
 | **Séparateur décimal** | Virgule : `12,5` | Point : `12.5` |
 | **Milliers** | Espace insécable : `10 000` | Virgule ou point : `10,000` / `10.000` |
 | **Symbole monétaire** | À droite avec insécable : `24,99 $` | À gauche ou collé : `$24.99` / `24.99$` |
@@ -58,7 +61,7 @@ Consulte `references/ponctuation.md` pour les cas particuliers (heures, jonction
 
 Consulte `references/nombres-et-symboles.md` pour les règles complètes et les contextes Web.
 
-## Référence rapide — patrons d'écriture IA
+## Référence rapide — patrons d'écriture IA (couche mécanique)
 
 Les 23 patrons sont classés du plus fort au plus faible. Les patrons §1 à §5 justifient une intervention dès la première occurrence. Les patrons marqués *faible seul* ont besoin de la compagnie d'autres patrons dans le même passage.
 
@@ -70,20 +73,48 @@ Les 23 patrons sont classés du plus fort au plus faible. Les patrons §1 à §5
 | D. Mise en forme | §18 Gras décoratif · §19 Titres décoratifs |
 | E. Résidus | §20 Résidus de robot · §21 Clauses de non-responsabilité · §22 Titre répété · §23 Version précédente |
 
-Consulte `references/humanisation.md` pour la définition complète, les exemples avant/après et la méthode de travail.
+Consulte `references/humanisation.md`, partie A, pour la définition complète, les exemples avant/après et les exceptions.
 
-## Méthode de travail
+## Référence rapide — humanisation profonde (12 principes)
 
-1. **Repérer.** Lire le texte en entier. Corriger d'abord la ponctuation, les nombres, les abréviations, l'épicène, les majuscules et l'orthographe (étapes 1 à 5). Puis marquer chaque patron d'écriture IA, du plus fort au plus faible.
-2. **Réécrire.** Garder chaque affirmation étayée. On peut raccourcir, fusionner ou scinder des paragraphes, mais conserver l'information. Ne rien inventer.
-3. **Vérifier.** Relire à voix haute. Chercher les cinq patrons qui survivent le plus souvent : un contraste pas-X-mais-Y, une chute d'une ligne, un tiret cadratin, une triade, une étiquette en gras. Vérifier qu'aucun fait n'a été ajouté ni perdu. Repasser les étapes 1 à 5 sur le texte humanisé.
-4. **Finaliser.** Énoncer chaque point naturellement. Varier la longueur des phrases.
+Ces principes ciblent les causes de l'écriture artificielle plutôt que les symptômes. Un texte peut ne contenir aucun des 23 patrons ci-dessus et rester manifestement artificiel par sa régularité, ses transitions scolaires et son vocabulaire trop soutenu.
+
+| # | Principe | En bref |
+|---|---|---|
+| 1 | Empreinte de voix | Analyser 10 dimensions (longueur des phrases, vocabulaire, connecteurs, etc.) avant de réécrire. Ne pas écrire en style académique générique par défaut. |
+| 2 | Casser la régularité | Éviter que chaque paragraphe suive le même modèle (problème → explication → nuance → conclusion). L'irrégularité humaine n'est pas une alternance régulière. |
+| 3 | Transitions génériques | Réduire « Cela dit… », « En effet… », « En ce sens… ». Supprimer les transitions qui n'ajoutent rien. |
+| 4 | Conclusions mécaniques | Ne pas reformuler la thèse à la fin de chaque paragraphe. Ne pas élargir automatiquement l'enjeu. |
+| 5 | Oppositions artificielles | Réduire les oppositions binaires systématiques (court terme/long terme, technologie/réglementation). |
+| 6 | Triades artificielles | Ne pas regrouper les idées par trois uniquement pour la structure. |
+| 7 | Vocabulaire soutenu | Préférer le mot spontané. Éviter l'accumulation de « enjeu », « dynamique », « levier », « incontournable ». |
+| 8 | Voix personnelle fictive | Ne jamais ajouter « je pense », « à mon avis » artificiellement. |
+| 9 | Répétitions naturelles | Conserver les répétitions cohérentes avec la voix de l'auteur. Ne pas varier le vocabulaire uniquement pour éviter une répétition. |
+| 10 | Précision avant élégance | Préférer la formulation spontanée et précise à la formulation élégante. Ne pas embellir sans raison. |
+| 11 | Sur-explication | Faire confiance au lecteur. Ne pas définir chaque concept avant de l'utiliser. Réduire le ton scolaire. |
+| 12 | Plausibilité humaine | Relire : cette formulation est-elle naturelle? cette transition est-elle nécessaire? le raisonnement est-il trop parfaitement organisé? |
+
+Consulte `references/humanisation.md`, partie B, pour la définition complète et les exemples.
+
+## Méthode de travail (5 étapes)
+
+1. **Corriger.** Lire le texte en entier. Appliquer les normes OQLF (étapes 1 à 5) sur le texte brut.
+2. **Éliminer les patrons IA.** Marquer chaque patron (§1 à §23) du plus fort au plus faible. Réécrire les passages marqués.
+3. **Humaniser en profondeur.** Appliquer les 12 principes. Casser la régularité, réduire les transitions, supprimer la sur-explication, ajuster le vocabulaire.
+4. **Lecture critique.** Relire comme si le texte avait été écrit par son auteur sans assistance. Poser deux questions par paragraphe : « Est-ce qu'une personne réelle formulerait cette idée de cette manière? » et « Est-ce que cette phrase existe parce qu'elle apporte quelque chose, ou uniquement parce qu'elle permet une belle transition? »
+5. **Dépolissage contrôlé.** Supprimer ce qui semble ajouté pour rendre le texte plus élégant ou plus complet. Le résultat doit être naturel et crédible plutôt que parfaitement lisse. Ne jamais introduire de fautes pour simuler une écriture humaine. Repasser les normes OQLF (étapes 1 à 5) sur le texte final.
 
 ### Voix
 
-Si l'utilisateur fournit un échantillon de son écriture, le lire d'abord et reproduire sa longueur de phrase, son vocabulaire, sa ponctuation, ses amorces et ses transitions. L'échantillon a priorité sur les patrons d'humanisation.
+Si l'utilisateur fournit un échantillon de son écriture, l'analyser d'abord selon 10 dimensions : longueur de phrase, vocabulaire, formalité, utilisation du « je », connecteurs, amorces de paragraphe, degré de nuance, répétitions naturelles, densité des idées, manière de conclure. L'échantillon a priorité sur les 12 principes d'humanisation.
 
-Sans échantillon, ajuster la voix au type de texte. Billets de blogue, essais et textes d'opinion : garder les réactions, l'incertitude, l'humour et les apartés. Textes de référence, techniques et juridiques : rester neutre et sobre.
+Sans échantillon, choisir une voix plausible pour le contexte. Billets de blogue, essais et textes d'opinion : garder les réactions, l'incertitude, l'humour et les apartés. Textes de référence, techniques et juridiques : rester neutre et sobre. Dans tous les cas, éviter le style académique excessivement poli, uniforme et démonstratif.
+
+### Niveaux d'humanisation
+
+- **Standard.** Correction des patrons IA et principes de base. Pas d'échantillon. Voix adaptée au type de texte.
+- **Académique.** Travaux universitaires, rapports professionnels. Humain, rigoureux, personnel et crédible, mais jamais conversationnel. Ne pas écrire « je trouve ça intéressant » ou « en fait » pour faire humain.
+- **Personnelle.** L'utilisateur fournit un ou plusieurs échantillons. Construire un profil de voix complet. Réécrire en conservant la formulation originale autant que possible.
 
 ## À ne jamais faire
 
@@ -97,6 +128,9 @@ Sans échantillon, ajuster la voix au type de texte. Billets de blogue, essais e
 - Ajouter un fait, un nom, un chiffre ou une citation absents de la source.
 - Laisser des résidus de robot conversationnel (« J'espère que cela vous aide! »).
 - Présenter une supposition comme un fait (« il a probablement grandi à… »).
+- Ajouter « je pense », « à mon avis », « pour ma part » artificiellement pour faire humain.
+- Introduire des fautes, des erreurs grammaticales ou de la mauvaise ponctuation pour simuler une écriture humaine.
+- Promettre un résultat « 100 % humain » ou « indétectable par les détecteurs d'IA ».
 
 ## Exemple condensé
 
@@ -122,3 +156,32 @@ Corrections appliquées :
 - §8 Tiret cadratin : supprimé, phrase restructurée.
 - §12 Importance gonflée : « moment charnière » remplacé par l'effet concret.
 - §2 Chute d'une ligne : « Voilà le véritable enjeu. » supprimé.
+
+## Exemple d'humanisation profonde
+
+Entrée (texte sans patron IA flagrant, mais artificiellement régulier) :
+```
+La fidélisation des clients constitue un enjeu majeur pour les entreprises modernes. En effet, le concept de valeur client actualisée, ou CLV, rappelle que conserver un client existant coute généralement moins cher que d'en acquérir un nouveau. Cela dit, il ne suffit pas d'offrir un bon produit. Il faut également bâtir une relation de confiance durable.
+
+De plus, la transparence joue un rôle fondamental dans cette dynamique. Les consommateurs d'aujourd'hui s'attendent à une communication honnête et à des pratiques éthiques. En ce sens, les entreprises qui investissent dans la transparence récoltent souvent les bénéfices d'une fidélité accrue.
+
+En conclusion, la fidélisation repose sur trois piliers : la qualité du produit, la transparence et la confiance. Les organisations qui intègrent ces dimensions dans leur stratégie sont mieux positionnées pour prospérer à long terme.
+```
+
+Sortie :
+```
+Fidéliser coute moins cher qu'acquérir. La CLV le confirme, mais la plupart des entreprises le savent déjà sans nécessairement agir en conséquence.
+
+Un bon produit ne suffit pas. Les clients veulent savoir comment l'entreprise fonctionne, pas seulement ce qu'elle vend. Ceux qui ont l'impression d'être traités honnêtement reviennent.
+
+La fidélité se construit sur la durée. Elle dépend moins d'une stratégie formelle que d'habitudes cohérentes.
+```
+
+Principes appliqués :
+- Principe 2 : architecture des paragraphes variée (le 1er est court et direct, le 2e développe, le 3e conclut différemment).
+- Principe 3 : transitions « En effet », « Cela dit », « De plus », « En ce sens », « En conclusion » supprimées.
+- Principe 4 : conclusion mécanique (« repose sur trois piliers ») remplacée par une affirmation simple.
+- Principe 6 : triade « qualité, transparence, confiance » cassée.
+- Principe 7 : « enjeu majeur », « dynamique », « fondamental », « dimensions » remplacés par des mots simples.
+- Principe 10 : formulations plus directes et moins académiques.
+- Principe 11 : définition scolaire de la CLV condensée (le lecteur connait le concept).

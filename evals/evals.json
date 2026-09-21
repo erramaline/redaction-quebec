@@ -105,6 +105,34 @@
       "prompt": "Corrige ce texte selon les normes de rédaction québécoises : « Pour la 2ème fois, le candidat accède au 2eme tour du scrutin. »",
       "expected_output": "« Pour la 2e fois, le candidat accède au 2d tour du scrutin. » — remplacement des graphies fautives 2ème/2eme par 2e, et emploi recommandé de 2d (second) pour un scrutin à deux tours.",
       "files": []
+    },
+    {
+      "id": 16,
+      "category": "humanisation-regularite",
+      "prompt": "Humanise en profondeur (casser la régularité) : « Le problème est clair. L'explication est la suivante. Cependant, il y a une nuance. En conclusion, il faut agir. »",
+      "expected_output": "Structure paragraphique variée, suppression de l'enchaînement mécanique problème->explication->nuance->conclusion.",
+      "files": []
+    },
+    {
+      "id": 17,
+      "category": "humanisation-transitions",
+      "prompt": "Humanise en profondeur : « Cela dit, le projet avance. En effet, les fonds sont là. En ce sens, nous sommes confiants. »",
+      "expected_output": "Transitions génériques (« Cela dit », « En effet », « En ce sens ») supprimées ou réduites, enchaînement plus naturel et direct.",
+      "files": []
+    },
+    {
+      "id": 18,
+      "category": "humanisation-sur-explication",
+      "prompt": "Humanise en profondeur : « Le concept de valeur client actualisée, ou CLV, rappelle que la fidélisation d'un client sur le long terme peut générer davantage de revenus que l'acquisition de nouveaux clients. »",
+      "expected_output": "Définition scolaire condensée ou supprimée (ex: « La CLV montre que fidéliser coûte moins cher qu'acquérir »), faisant confiance aux connaissances du lecteur.",
+      "files": []
+    },
+    {
+      "id": 19,
+      "category": "humanisation-vocabulaire-soutenu",
+      "prompt": "Humanise en profondeur : « L'enjeu de cette dynamique est de trouver un levier incontournable. »",
+      "expected_output": "Vocabulaire artificiellement soutenu (« enjeu », « dynamique », « levier », « incontournable ») remplacé par des termes spontanés et précis.",
+      "files": []
     }
   ]
 }
