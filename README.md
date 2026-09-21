@@ -211,11 +211,10 @@ L'agent détectera automatiquement le skill lors de toute tâche de rédaction o
 1. Rendez-vous sur [claude.ai](https://claude.ai) et ouvrez votre **Projet** (ou créez-en un nouveau : *« Réviseur Québécois »*).
 2. Dans la colonne de droite, section **Project Knowledge**, cliquez sur **Add Content** → **Upload Files**.
 3. Téléversez :
-   - [`SKILL.md`](SKILL.md)
-   - Tous les fichiers du sous-dossier [`references/`](references/)
+   - [`SKILL.md`](SKILL.md) (Ce fichier unique contient toutes les règles et références)
 4. Dans les **Project Instructions** (Instructions personnalisées du projet), écrivez :
    ```
-   Tu es un réviseur expert appliquant le skill 'quebecois'. Utilise toujours le fichier SKILL.md et les références fournies pour réviser et humaniser tout texte soumis.
+   Tu es un réviseur expert appliquant le skill 'quebecois'. Utilise toujours le fichier SKILL.md pour réviser et humaniser tout texte soumis.
    ```
 5. Lancez une discussion et collez vos textes à réviser.
 
@@ -241,8 +240,8 @@ L'agent détectera automatiquement le skill lors de toute tâche de rédaction o
 2. Cliquez sur **Configure** :
    - **Name :** `Réviseur Québécois & Humaniseur`
    - **Description :** `Révise vos textes selon les normes OQLF et supprime les tournures artificielles d'IA.`
-   - **Instructions :** Copiez-collez l'intégralité du fichier [`SKILL.md`](SKILL.md).
-   - **Knowledge :** Téléversez les 6 fichiers de [`references/`](references/).
+   - **Instructions :** Copiez-collez l'intégralité du fichier [`SKILL.md`](SKILL.md). Il contient déjà toutes les références nécessaires.
+   - **Knowledge :** Aucun fichier supplémentaire n'est requis.
    - Décochez *Code Interpreter* si non requis.
 3. Cliquez sur **Save** (ou *Publish* pour votre usage personnel).
 
@@ -271,16 +270,7 @@ client = OpenAI()
 with open("SKILL.md", "r", encoding="utf-8") as f:
     instructions = f.read()
 
-ref_files = ["ponctuation", "nombres-et-symboles", "redaction-epicene", 
-             "majuscules", "orthographe-1990", "humanisation"]
-refs = []
-for ref in ref_files:
-    path = os.path.join("references", f"{ref}.md")
-    if os.path.exists(path):
-        with open(path, "r", encoding="utf-8") as f:
-            refs.append(f.read())
-
-system_prompt = instructions + "\n\n# RÉFÉRENCES DÉTAILLÉES\n\n" + "\n\n".join(refs)
+system_prompt = instructions
 
 # Appel de révision
 response = client.chat.completions.create(
@@ -316,7 +306,6 @@ print(response.choices[0].message.content)
    ---
    # Inclure le contenu de SKILL.md ici
    ```
-3. Copiez le sous-dossier `references/` dans `.cursor/rules/references/`.
 
 </details>
 
@@ -426,7 +415,7 @@ jq '.evals[] | {id: .id, category: .category, prompt: .prompt}' evals/evals.json
 ```
 redaction-quebec/
 │
-├── SKILL.md                     # Le skill complet et unifié (nom : quebecois)
+├── SKILL.md                     # Le skill complet et autoportant (inclut toutes les références)
 │
 ├── references/                  # Documentation approfondie par domaine
 │   ├── ponctuation.md           # Normes typographiques et espacements OQLF
