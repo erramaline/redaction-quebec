@@ -1,7 +1,7 @@
 ---
 name: quebecois
 description: |
-  Révise et humanise un texte français pour qu'il respecte les normes de l'Office québécois de la langue française (OQLF) et qu'il sonne comme l'écriture d'un humain, pas d'un robot. En une seule passe, corrige l'espacement de la ponctuation, l'écriture des nombres et symboles monétaires, les espaces insécables réelles (\u00A0 ou &nbsp;), les abréviations de civilité sans point (Mme, Dr vs M.), les ordinaux (2d/2de vs 2e), les rectifications orthographiques de 1990, la rédaction épicène, les majuscules institutionnelles, et détecte puis réécrit 23 patrons d'écriture artificielle (mise en scène, triades, inflation, gras décoratif, résidus de robot conversationnel, etc.). Utilise ce skill dès qu'un texte français est rédigé, corrigé, révisé, traduit, humanisé ou reformaté pour un public québécois ou canadien-français, ou dès que l'utilisateur mentionne le Québec, l'OQLF, la BDL, le GDT, la rédaction épicène, l'humanisation ou des normes québécoises.
+  Révise et humanise un texte français pour qu'il respecte les normes de l'Office québécois de la langue française (OQLF) et qu'il sonne comme l'écriture d'un humain, pas d'un robot. En une seule passe, corrige l'espacement de la ponctuation, l'écriture des nombres et symboles monétaires, les espaces insécables réelles, les abréviations de civilité sans point (Mme, Dr vs M.), les ordinaux (2d/2de vs 2e), les rectifications orthographiques de 1990, la rédaction épicène, les majuscules institutionnelles, et détecte puis réécrit 23 patrons d'écriture artificielle (mise en scène, triades, inflation, gras décoratif, résidus de robot conversationnel, etc.). Utilise ce skill dès qu'un texte français est rédigé, corrigé, révisé, traduit, humanisé ou reformaté pour un public québécois ou canadien-français, ou dès que l'utilisateur mentionne le Québec, l'OQLF, la BDL, le GDT, la rédaction épicène, l'humanisation ou des normes québécoises.
 ---
 
 # Québécois
@@ -22,7 +22,7 @@ Le skill couvre six axes. Les cinq premiers sont des normes OQLF objectives. Le 
 ## Ordre de traitement (toujours dans cet ordre)
 
 1. **Ponctuation haute** — retirer les espaces avant `; ! ?`, valider les guillemets, les deux-points et les points de suspension → voir `references/ponctuation.md`
-2. **Données chiffrées et abréviations** — repositionner les symboles monétaires, valider la virgule décimale, insérer l'espace insécable réelle (`\u00A0` ou `&nbsp;` en Web/HTML), vérifier les ordinaux (`2d`/`2de` vs `2e`) et les abréviations (pas de point à `Mme`, `Dr`, `Me` ; point à `M.`) → voir `references/nombres-et-symboles.md`
+2. **Données chiffrées et abréviations** — repositionner les symboles monétaires, valider la virgule décimale, insérer l'espace insécable réelle (U+00A0 en texte, entité HTML en Web), vérifier les ordinaux (`2d`/`2de` vs `2e`) et les abréviations (pas de point à `Mme`, `Dr`, `Me`; point à `M.`) → voir `references/nombres-et-symboles.md`
 3. **Rédaction épicène** — remplacer points médians/parenthèses par une formulation neutre ou un doublet complet → voir `references/redaction-epicene.md`
 4. **Majuscules institutionnelles** — minuscule aux titres de fonction, majuscule aux lois/unités administratives → voir `references/majuscules.md`
 5. **Uniformité orthographique** — vérifier qu'aucun mot ne coexiste sous sa forme traditionnelle et sa forme rectifiée dans le même texte → voir `references/orthographe-1990.md`
