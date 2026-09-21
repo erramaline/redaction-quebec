@@ -17,7 +17,7 @@
 <br/>
 
 <p align="center">
-  <a href="#-pourquoi-ce-skill"><b>Pourquoi ce skill ?</b></a> •
+  <a href="#-pourquoi-ce-skill"><b>Pourquoi ce skill?</b></a> •
   <a href="#-comparaison-immédiate"><b>Avant / Après</b></a> •
   <a href="#-les-six-axes"><b>Les 6 axes</b></a> •
   <a href="#-patrons-ia-éliminés"><b>23 patrons IA</b></a> •
@@ -29,7 +29,7 @@
 
 </div>
 
-## 🎯 Pourquoi ce skill ?
+## 🎯 Pourquoi ce skill?
 
 La plupart des modèles d'intelligence artificielle souffrent de deux défauts majeurs lorsqu'ils rédigent en français :
 
@@ -99,7 +99,7 @@ sur le financement de l'éducation.
 
 ## 📐 Les six axes
 
-Le traitement s'exécute dans un ordre précis et rigoureux :
+Le traitement s'exécute dans un ordre précis :
 
 ```mermaid
 graph LR
@@ -165,7 +165,7 @@ Pour comprendre pourquoi vos textes ont besoin de ce skill :
 
 ## 🛠️ Guide d'installation par outil IA
 
-Choisissez votre outil préféré ci-dessous :
+Choisissez votre outil :
 
 ### 1. 🟣 Claude (Anthropic)
 

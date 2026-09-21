@@ -1,6 +1,6 @@
 # Ponctuation — espacement (norme OQLF)
 
-L'« espace insécable » désignée ci-dessous correspond au caractère Unicode U+00A0 (NBSP) ; en HTML, utilise `&nbsp;`.
+L'« espace insécable » désignée ci-dessous correspond au caractère Unicode U+00A0 (NBSP); en HTML, utilise `&nbsp;`.
 
 ## Deux-points ( : )
 - Édition soignée / impression : espace insécable avant, espace sécable après.
@@ -13,7 +13,7 @@ L'« espace insécable » désignée ci-dessous correspond au caractère Unicode
 - L'espace fine insécable n'est requise que dans les travaux d'édition de haute tradition typographique, jamais dans le traitement de texte usuel.
 
 ## Guillemets
-- Niveau 1 (citation principale) : guillemets français « » — espace sécable avant le guillemet ouvrant, espace insécable après lui ; espace insécable avant le guillemet fermant, espace sécable après lui.
+- Niveau 1 (citation principale) : guillemets français « » — espace sécable avant le guillemet ouvrant, espace insécable après lui; espace insécable avant le guillemet fermant, espace sécable après lui.
 - Niveau 2 (citation enchâssée dans une citation) : guillemets anglais " " — collés directement au texte, sans espace interne. Ne jamais emboîter deux paires de guillemets français.
 - Contexte numérique restreint (l'espace insécable n'est pas supportée) : supprime aussi l'espace interne des guillemets français.
 

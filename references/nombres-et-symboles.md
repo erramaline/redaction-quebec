@@ -18,7 +18,7 @@ Dans certains environnements de saisie ou lors de la publication Web, une espace
 - **Web / HTML / CMS :** Employer l'entité HTML `&nbsp;` (`100&nbsp;$`, `5&nbsp;%`, `1&nbsp;250&nbsp;000&nbsp;$`, `M.&nbsp;Tremblay`).
 
 ## Adjectifs numéraux ordinaux
-Abréviation en exposant préférée ; ligne de base tolérée si l'exposant est techniquement impossible.
+Abréviation en exposant préférée; ligne de base tolérée si l'exposant est techniquement impossible.
 
 | Terme | Conforme | Formes proscrites |
 |---|---|---|
